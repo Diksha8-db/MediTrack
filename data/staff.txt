@@ -1,0 +1,3 @@
+// SAMPLE:
+StaffID,Name,Email,Department
+S201,Emma,staff@hms.com,Reception

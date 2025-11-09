@@ -1,0 +1,4 @@
+// SAMPLE :
+PatientID,Name,Email,Disease,AssignedDoctorID
+P301,John,pat@hms.com,Flu,D101
+P302,Sophia,sophia@hms.com,Cold,D102

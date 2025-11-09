@@ -1,0 +1,7 @@
+// SAMPLE : 
+
+email,password,role
+admin@hms.com,admin123,Admin
+staff@hms.com,staff123,Staff
+doc@hms.com,doc123,Doctor
+pat@hms.com,pat123,Patient

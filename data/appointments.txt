@@ -1,0 +1,4 @@
+// SAMPLE
+
+AppointmentID,DoctorID,PatientID,Date,Time,Status
+A401,D101,P301,2025-11-09,10:00 AM,Pending
