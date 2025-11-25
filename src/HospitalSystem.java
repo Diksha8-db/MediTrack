@@ -30,7 +30,7 @@ public class HospitalSystem {
 
         // ===== Post-login Handling =====
         if (loggedInUser != null) {
-            System.out.println("\n✅ Login Successful! Welcome, " + loggedInUser.getName() + "!");
+            System.out.println("\nLogin Successful! Welcome, " + loggedInUser.getName() + "!");
             System.out.println("You are logged in as: " + loggedInUser.getClass().getSimpleName() + "\n");
 
             // Launch role-based menu
