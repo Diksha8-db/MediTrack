@@ -1,6 +1,79 @@
 import java.util.*;
 
 public class AuthService {
+    private Admin loadAdmin(String email, String pass) {
+        List<String> list = FileHandler.readFile("data/users.txt");
+    
+        for (String line : list) {
+            String[] p = line.split(",");
+            if (p.length < 3) continue;
+    
+            if (p[0].equals(email)) {
+                String id = p[3];           // Admin ID must be stored here
+                String name = p[4];         // Admin Name
+                return new Admin(id, name, email, pass);
+            }
+        }
+        return new Admin("ADM-DEFAULT", "Admin", email, pass);
+    }
+    
+    private Staff loadStaff(String email, String pass) {
+        List<String> list = FileHandler.readFile("data/staff.txt");
+    
+        for (String s : list) {
+            String[] p = s.split(",");
+            if (p.length < 3) continue;
+    
+            if (p[2].equals(email)) {
+                String id = p[0];
+                String name = p[1];
+                return new Staff(id, name, email, pass);
+            }
+        }
+    
+        return null;
+    }
+
+    
+    private Patient loadPatient(String email, String pass) {
+        List<String> list = FileHandler.readFile("data/patients.txt");
+    
+        for (int i = 1; i < list.size(); i++) {  
+            String[] p = list.get(i).split(",");
+    
+            if (p[2].equals(email)) {
+                String id = p[0];
+                String name = p[1];
+    
+                return new Patient(id, name, email, pass);
+            }
+        }
+    
+        System.out.println("Patient record not found in patients.txt");
+        return null;
+    }
+
+    private Doctor loadDoctor(String email, String pass) {
+        List<String> list = FileHandler.readFile("data/doctors.txt");
+    
+        for (String line : list) {
+            String[] p = line.split(",");
+    
+            if (p.length < 4) continue;
+    
+            // p[2] = email
+            if (p[2].equals(email)) {
+                String id = p[0];
+                String name = p[1];
+    
+                return new Doctor(id, name, email, pass);
+            }
+        }
+    
+        System.out.println("Doctor record not found in doctors.txt");
+        return null;
+    }    
+    
 
     public User login() {
         Scanner sc = new Scanner(System.in);
@@ -19,10 +92,11 @@ public class AuthService {
                 if (p[0].equals(email) && p[1].equals(pass)) {
 
                     return switch (p[2]) {
-                        case "Admin" -> new Admin("A1", "Admin", email, pass);
-                        case "Staff" -> new Staff("S1", "Staff", email, pass);
-                        case "Doctor" -> new Doctor("D1", "Doctor", email, pass);
-                        case "Patient" -> new Patient("P1", "Patient", email, pass);
+                        case "Admin"   -> loadAdmin(email, pass);
+                        case "Staff"   -> loadStaff(email, pass);
+                        case "Doctor"  -> loadDoctor(email, pass);
+                        case "Patient" -> loadPatient(email, pass);
+    
                         default -> null;
                     };
                 }

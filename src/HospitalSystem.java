@@ -2,7 +2,6 @@ public class HospitalSystem {
 
     public static void main(String[] args) {
 
-        // ===== Welcome Banner =====
         System.out.println("\n==================================================");
         System.out.println("          WELCOME TO MEDI-TRACK HMS PORTAL ");
         System.out.println("==================================================");
@@ -10,7 +9,7 @@ public class HospitalSystem {
         System.out.println(" Manage Doctors | Staff | Patients | Appointments");
         System.out.println("==================================================\n");
 
-        // ===== About HMS =====
+        // About HMS
         System.out.println("About MediTrack HMS:");
         System.out.println("This Hospital Management System (HMS) is designed to manage");
         System.out.println("all critical operations of a hospital in a digital way. It");
@@ -24,11 +23,11 @@ public class HospitalSystem {
         System.out.println("3. Use numbers to navigate menus.");
         System.out.println("4. Logout to save data and exit safely.\n");
 
-        // ===== Authentication =====
+        // Authentication 
         AuthService auth = new AuthService();
-        User loggedInUser = auth.login(); // Login handles input internally
+        User loggedInUser = auth.login(); 
 
-        // ===== Post-login Handling =====
+        //  Post-login Handling 
         if (loggedInUser != null) {
             System.out.println("\nLogin Successful! Welcome, " + loggedInUser.getName() + "!");
             System.out.println("You are logged in as: " + loggedInUser.getClass().getSimpleName() + "\n");

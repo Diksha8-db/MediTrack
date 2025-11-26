@@ -9,7 +9,7 @@ public class FileHandler {
     static String PATIENT_FILE = "data/patients.txt";
     static String APPOINTMENT_FILE = "data/appointments.txt";
 
-    // ---------- Utility ----------
+    // Utility 
     static List<String> readFile(String file) {
         try { return new ArrayList<>(java.nio.file.Files.readAllLines(new File(file).toPath())); }
         catch (Exception e) { return new ArrayList<>(); }
@@ -20,7 +20,7 @@ public class FileHandler {
         catch (Exception e) { System.out.println("Error writing file: " + file); }
     }
 
-    // ========== ADMIN CRUD ==========
+    // ADMIN CRUD 
     public static void manageDoctors() {
         Scanner sc = new Scanner(System.in);
         System.out.println("\n--- Manage Doctors ---");
@@ -103,7 +103,7 @@ public class FileHandler {
         }
     }
 
-    // ========== STAFF Patients ==========
+    // STAFF Patients 
     public static void managePatients() {
         Scanner sc = new Scanner(System.in);
         System.out.println("\n--- Manage Patients ---");
@@ -146,7 +146,7 @@ public class FileHandler {
         }
     }
 
-    // ========== Appointments ==========
+    // Appointments
     public static void manageAppointments() {
         Scanner sc = new Scanner(System.in);
         System.out.println("\n--- Manage Appointments ---");
@@ -190,7 +190,7 @@ public class FileHandler {
         }
     }
 
-    // ========== DOCTOR VIEW ==========
+    // DOCTOR VIEW 
     public static void viewDoctorPatients(String docID) {
         readFile(PATIENT_FILE).stream()
                 .filter(l -> l.contains("," + docID))
@@ -203,7 +203,7 @@ public class FileHandler {
                 .forEach(System.out::println);
     }
 
-    // ========== PATIENT VIEW ==========
+    // PATIENT VIEW 
     public static void viewPatientDoctor(String patID) {
         readFile(PATIENT_FILE).stream()
                 .filter(l -> l.contains(patID + ","))
@@ -216,7 +216,7 @@ public class FileHandler {
                 .forEach(System.out::println);
     }
 
-    // ========== ADMIN VIEW ==========
+    // ADMIN VIEW
     public static void viewPatients() {
         readFile(PATIENT_FILE).forEach(System.out::println);
     }
