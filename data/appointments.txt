@@ -1,2 +1,3 @@
 AppointmentID,DoctorID,PatientID,Date,Time,Status
 A401,D101,P301,2025-11-09,10:00 AM,Pending
+A101,D105,P301,2025-04-01,06:01 AM,Completed

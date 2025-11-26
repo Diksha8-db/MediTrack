@@ -27,12 +27,11 @@ public class HospitalSystem {
         AuthService auth = new AuthService();
         User loggedInUser = auth.login(); 
 
-        //  Post-login Handling 
         if (loggedInUser != null) {
             System.out.println("\nLogin Successful! Welcome, " + loggedInUser.getName() + "!");
             System.out.println("You are logged in as: " + loggedInUser.getClass().getSimpleName() + "\n");
 
-            // Launch role-based menu
+            
             loggedInUser.displayMenu();
 
         } else {

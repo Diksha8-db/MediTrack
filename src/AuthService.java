@@ -49,7 +49,6 @@ public class AuthService {
     
             if (p.length < 4) continue;
     
-            // p[2] = email
             if (p[2].equals(email)) {
                 String id = p[0];
                 String name = p[1];
