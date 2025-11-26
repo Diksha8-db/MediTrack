@@ -2,20 +2,8 @@ import java.util.*;
 
 public class AuthService {
     private Admin loadAdmin(String email, String pass) {
-        List<String> list = FileHandler.readFile("data/users.txt");
-    
-        for (String line : list) {
-            String[] p = line.split(",");
-            if (p.length < 3) continue;
-    
-            if (p[0].equals(email)) {
-                String id = p[3];           // Admin ID must be stored here
-                String name = p[4];         // Admin Name
-                return new Admin(id, name, email, pass);
-            }
-        }
-        return new Admin("ADM-DEFAULT", "Admin", email, pass);
-    }
+        return new Admin("A100", "System Administrator", email, pass);
+    }    
     
     private Staff loadStaff(String email, String pass) {
         List<String> list = FileHandler.readFile("data/staff.txt");
